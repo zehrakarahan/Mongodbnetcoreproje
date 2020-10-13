@@ -1,0 +1,58 @@
+﻿@model BLOG.Yeni.Models.Errors
+
+@{
+    Layout = null;
+    List<BLOG.Yeni.Models.Errors> veriler = ViewBag.veri;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ErrorAdd</title>
+</head>
+<body>
+
+    <h4>Errors</h4>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-4">
+            
+                @using (Html.BeginForm("ErrorAdd", "Home", FormMethod.Post))
+                
+                {
+
+                    @Html.DropDownListFor(x => x._idString, (List<SelectListItem>)ViewBag.verilerim, new { @class = "form-control", @name = "_id" })<br />
+                    @Html.TextBoxFor(x => x.Error_Name, new { @class = "form-control" })<br />
+                    @Html.TextBoxFor(x => x.Solution, new { @class = "form-control" })
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+
+                }
+
+                    @*<label asp-for="Category_id" id="deneme" class="control-label"></label>
+            <input asp-for="Category_id" class="form-control" style="text-decoration-color:'black';align:'center';width:20%;border:2px solid DeepSkyBlue;border-radius: 4px;display:flex;justify-content:center;" />
+            <span asp-validation-for="Category_id" class="text-danger"></span></br>
+            <select asp-for="Category_id"
+                    id=""
+                    multiple="multiple"
+                    class="form-control "
+                    asp-items="ViewBag.Categoriler">
+                <option value="">Seçiniz</option>
+            </select>*@
+
+
+        </div>
+    </div>
+
+ 
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+
+
+</body>
+</html>

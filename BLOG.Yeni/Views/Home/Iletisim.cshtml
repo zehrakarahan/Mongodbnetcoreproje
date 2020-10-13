@@ -1,0 +1,50 @@
+﻿@model IEnumerable<BLOG.Yeni.Models.Category>
+@{
+    ViewData["Title"] = "Iletisim";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="ust">
+    <div id="header">
+        <div id="logo">
+            
+            <h2 style="font-size:20px;">Kodlama Hataları</h2>
+
+        </div> <!--logo kapanış--->
+        <div style=" display:flex; justify-content:center;">
+            <nav class="menu" style="text-align:center">
+                <ul>
+                    <li><a href="#">Ana Sayfa</a></li>
+                    <li>
+                        <a href="#">Kategoriler</a>
+
+                        <ul>
+                            @foreach (var item in Model)
+                            {
+                                <li><a asp-action="Hata" asp-controller="Home" asp-route-id="@item.Category_id">@item.Category_Name</a></li>
+                            }
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a asp-action="Hakkinda" asp-controller="Home">Hakkında</a>
+                    </li>
+                    <li><a asp-action="Iletisim" asp-controller="Home">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>     <!--header kapanış--->
+
+</div>
+<div id="content">
+    <div id="clear">
+    </div>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+
+
+        </main>
+    </div>
+</div>
+<h1>Iletisim</h1>
+

@@ -1,0 +1,70 @@
+﻿@model IEnumerable<BLOG.Yeni.Models.Category>
+@{
+    ViewData["Title"] = "HATA";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<BLOG.Yeni.Models.Errors> sonuc =ViewBag.Veriler;
+}
+<div id="ust">
+    <div id="header">
+        <div id="logo">
+            
+            <h2 style="font-size:20px;">Kodlama Hataları</h2>
+
+        </div> <!--logo kapanış--->
+        <div style=" display:flex; justify-content:center;">
+            <nav class="menu" style="text-align:center">
+                <ul>
+                    <li><a href="#">Ana Sayfa</a></li>
+                    <li>
+                        <a href="#">Kategoriler</a>
+
+                        <ul>
+                            @foreach (var item in Model)
+                            {
+                                <li><a asp-action="Hata" asp-controller="Home" asp-route-id="@item.Category_id">@item.Category_Name</a></li>
+                            }
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a asp-action="Hakkinda" asp-controller="Home">Hakkında</a>
+                    </li>
+                    <li><a href="#">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>     <!--header kapanış--->
+
+</div>
+<div id="content">
+    <div id="clear">
+    </div>
+    
+    <div class="container">
+        <main role="main" class="pb-3">
+            @foreach (var item in sonuc)
+            {
+            <div>
+               @*<a href="C:\Users\sumey\source\repos\BLOG\BLOG.Yeni\Views\Admin\ErrorList.cshtml">C:\Users\sumey\source\repos\BLOG\BLOG.Yeni\Views\Admin\ErrorList.cshtml</a>*@
+                <div><h5>Hata Bilgisi</h5></div>
+                @item.Error_Name <br />
+                <div><h5>Çözümü</h5></div>
+                @item.Solution
+                <hr style="border:1px solid black;" />
+            </div>
+            
+            }
+
+
+
+
+            <div style="position:fixed;bottom:0; width:100%; display:flex;justify-content:center">
+                <div id="footer">
+
+                    Copyright &copy; <a href=" .com/">Zehra Karahan |</a>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+

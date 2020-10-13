@@ -1,0 +1,44 @@
+﻿@model BLOG.Yeni.Models.kullaniciislem
+@{
+    ViewData["Title"] = "UserGiris";
+    Layout = "~/Views/Shared/_LayoutUserGiris.cshtml";
+}
+
+
+<div class="container-login100" style="margin-top:-23px;">
+    <div class="wrap-login100 p-t-30 p-b-30">
+     
+            
+            @using (Html.BeginForm("Girisyap", "Admin"))
+            {
+                <span class="login100-form-title p-b-40">
+                    Giriş Yap
+                </span>
+
+                <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter email: ex@abc.xyz">
+
+                    @Html.TextBoxFor(x => x.kullanici, new { @placeholder = "Email veya Kullanıcı Adı", @class = "input100", @type = "email", @required = "required" })
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-20" data-validate="Please enter password">
+                    <span class="btn-show-pass">
+                        <i class="fa fa fa-eye"></i>
+                    </span>
+
+                    @Html.PasswordFor(x => x.password, new { @placeholder = "Password", @class = "input100", @type = "password", @required = "required" })
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn">
+                        Giriş Yap
+                    </button>
+                </div>
+            }
+
+       
+    </div>
+</div>
+
+

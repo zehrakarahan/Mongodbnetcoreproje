@@ -1,0 +1,29 @@
+﻿@*@using BLOG
+    @using BLOG.Models
+    @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers*@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>KODLAMA HATALARI</title>
+    <link rel="stylesheet" type="text/css" href="~/css/style.css" />
+    <link href="~/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+
+    @RenderBody()
+
+    <div style="position:fixed;bottom:0; width:100%; display:flex;justify-content:center">
+        <div id="footer" style="position:absolute; bottom:1px; height:53px; ">
+
+            Copyright &copy; <a href=" .com/">Zehra Karahan |</a>
+        </div>
+    </div>
+   
+    <script src="~/twitter-bootstrap/js/bootstrap.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

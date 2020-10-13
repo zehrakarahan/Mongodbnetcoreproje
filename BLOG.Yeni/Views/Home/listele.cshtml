@@ -1,0 +1,15 @@
+﻿@model IEnumerable<BLOG.Yeni.Models.Errors>
+@{
+    ViewData["Title"] = "listele";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var item in Model)
+{
+    @item.Error_Name
+    <br />
+    @item.Solution
+
+}
+
+

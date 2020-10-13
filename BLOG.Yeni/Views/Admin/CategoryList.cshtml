@@ -1,0 +1,73 @@
+﻿@model IEnumerable<BLOG.Yeni.Models.Category>
+@{
+    ViewData["Title"] = "CategoryList";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+<a asp-action="CategoryAdd" asp-controller="Admin" type="button" class="btn btn-success">Kategori Ekleme</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Category ObjectId</th>
+            <th scope="col">Category Adı</th>
+            <th scope="col">Category Id</th>
+            <th scope="col">Güncelle</th>
+            <th scope="col">Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item._id</th>
+                <td>@item.Category_Name</td>
+                <td class="deneme" >@item.Category_id</td>
+                <td><a asp-action="Edit" asp-controller="Admin" asp-route-id="@item.Category_id" type="button" class="btn btn-primary">Guncelle</a></td>
+                <td><a value="@item.Category_id" asp-action="Sil" asp-route-id="@item.Category_id" asp-controller="Admin" data-deger="@item.Category_id" type="button" class="btn btn-danger veriler">Sil</a></td>
+            </tr>
+        }
+
+
+
+    </tbody>
+</table>
+@*<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".veriler").click(function () {
+            var degerim = $(this).data('deger');
+            alert("degerim" + degerim);
+            swal({
+                title: "Categoriyi silinsin mi?",
+                text: " Kategori Silinecek!",
+                icon: "warning",
+                buttons: ["İptal", "Tamam"],
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        $.ajax({
+                            type: "POST", // GET ya da POST olabilir
+                            url: "/Admin/Sil/",
+                            data: {id:degerim},
+                            success: function () {
+                                swal("Başarılı bir şekilde silindi!", {
+                                    icon: "success",
+                                });
+                            },
+                            error: function () {
+                                swal("Malesef İptal Edildi!", {
+                                    icon: "error"
+                                });
+                            }
+                        });
+                   
+                 
+                       
+                    } else {
+                      
+                        swal("Malesef İptal Edildi!");
+                    }
+                });
+        })
+    });
+</script>*@

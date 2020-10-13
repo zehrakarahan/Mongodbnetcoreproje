@@ -1,0 +1,32 @@
+﻿@model IEnumerable<BLOG.Yeni.Models.Errors>
+@{
+    ViewData["Title"] = "ErrorList";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+<a asp-action="ErrorAdd" asp-controller="Admin" type="button" class="btn btn-success">Error Create</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Error Id</th>
+            <th scope="col">Error Adı</th>
+            <th scope="col">Güncelle</th>
+            <th scope="col">Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item._id</th>
+                <td>@item.Error_Name</td>
+                <td><a asp-action="Duzenle" asp-controller="Admin" asp-route-objectId="@item._id" type="button" class="btn btn-primary">Guncelle</a></td>
+                <td><a asp-action="Silerrors" asp-controller="Admin" asp-route-objectId="@item._id"  type="button" class="btn btn-danger">Sil</a></td>
+            </tr>
+        }
+
+
+
+    </tbody>
+</table>
+
